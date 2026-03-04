@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ai-investigator:
+    build: .
+    container_name: ai-engineering-investigator
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/webhook/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
