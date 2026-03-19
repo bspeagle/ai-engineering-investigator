@@ -1,308 +1,200 @@
-# 🚀 Windsurf Development Rules
-
-## 1. 📚 Documentation Standards
-1.1. Main README.md requirements:
-    - Must follow template at docs/templates/readme-template.md
-    - Must include emojis, badges, and mermaid diagrams
-    - Maintain consistent awesome formatting
-    - Contain up-to-date infrastructure diagrams
-    - Include clear table of contents
-    - Provide development setup instructions
-    - Document environment variables and configurations
-    - Include troubleshooting guides
-    - Update with every repository change
-1.2. Terraform requirements:
-    - variables.tf should always be organized and include section headers like the following examples:
-        #===================================#
-        #        < BASIC SETTINGS >         #
-        #===================================#
-        
-        #===================================#
-        #        < NETWORK SETTINGS >       #
-        #===================================#
-        
-        #===================================#
-        #        < TAGGING >                #
-        #===================================#
-
-## 2. 💻 Code Quality
-2.1. No automatic code changes - require approval first
-2.2. Keep solutions simple and efficient:
-    - Avoid overcomplicated code
-    - Follow current best practices
-    - Provide high-level overviews
-2.3. Write comprehensive tests
-2.4. Include detailed code documentation
-2.5. Follow consistent code style
-2.6. Implement robust error handling
-2.7. Regular security updates
-2.8. Consider performance optimization
-2.9. Library Implementation Standards:
-    - Always verify changes against official library documentation before implementing
-    - Don't make assumptions about library functionality
-    - If something isn't explicitly documented in the library, don't implement it without proper research
-    - Be explicit about what changes are supported vs what might break existing functionality
-2.10. Code files must not exceed **300 lines**:
-    - If the file grows beyond this, logic **must** be modularized into helpers or subcomponents
-    - Applies to Python, JavaScript/TypeScript, Go, Shell, and similar
-    - Helps maintain readability, testability, and reuse
-
-## 3. 🔄 Git Workflow
-3.1. Run git status before commits
-3.2. Commit messages must include:
-    - What changed
-    - Why it changed
-    - Impact of changes
-3.3. Branch naming convention:
-    - feature/[feature-name]
-    - bugfix/[bug-name]
-    - hotfix/[issue-name]
-3.4. Create descriptive pull requests
-3.5. Squash commits before merging
-
-## 4. 🛡️ Security & Infrastructure
-4.1. Never commit sensitive information
-4.2. Document all infrastructure changes
-4.3. Maintain environment parity
-4.4. Regular dependency updates
-4.5. Document access control
-4.6. Document backup procedures
-
-## 5. 🤝 Collaboration
-5.1. Mandatory code reviews
-5.2. Regular knowledge sharing
-5.3. Clear communication channels
-5.4. Document architectural decisions
-
-## 6. ✅ Quality Assurance
-6.1. Define acceptance criteria
-6.2. Maintain test coverage
-6.3. Monitor performance regularly
-6.4. Document API endpoints
-
-## 7. 💯 Documentation and Research Requirements
-7.1. Mandatory Documentation Format:
-    For EVERY proposed change, must provide:
-    ```
-    Documentation References:
-    - Service Documentation: [EXACT URL]
-    - Provider/Tool Documentation: [EXACT URL]
-    - Relevant Section Quote: [EXACT QUOTE]
-    
-    Confidence Assessment:
-    - Confidence Level: [X]%
-    - Reasoning: [SPECIFIC POINTS]
-    - Uncertainties: [LIST ANY]
-    - Additional Research Needed: [YES/NO]
-    
-    Proposed Changes:
-    [DETAILED CHANGES]
-    ```
-
-7.2. Documentation Verification:
-    - Must provide documentation references BEFORE suggesting any changes
-    - Must quote relevant documentation sections verbatim
-    - Must cross-reference between service docs and tool docs
-    - Must verify all configuration formats against official examples
-    - Zero tolerance for undocumented assumptions
-
-7.3. Confidence Requirements:
-    - Must maintain 100% confidence in all changes
-    - Must explicitly state confidence level
-    - Must list ANY uncertainties, no matter how small
-    - Must pause and research if confidence is not 100%
-    - Must get explicit approval before proceeding with changes
-
-7.4. Research Standards:
-    - Must check official documentation first
-    - Must verify against current versions
-    - Must confirm compatibility
-    - Must validate syntax
-    - Must check for breaking changes
-    - Must verify resource specifications
-    - Must research any limitations
-
-7.5. Change Implementation:
-    - No changes without documentation verification
-    - No changes without explicit approval
-    - No assumptions about formats or configurations
-    - No trial and error approaches
-    - No partial research
-    - Must follow exact documented formats
-
-## 8. 🎯 Response Standards
-8.1. Must provide:
-    - Clear documentation references
-    - Specific confidence levels
-    - Detailed reasoning
-    - All uncertainties
-    - Explicit approval requests
-
-8.2. Zero Tolerance:
-    - No undocumented changes
-    - No assumptions
-    - No partial research
-    - No skipping verification steps
-    - No proceeding without approval
-
-8.3. Quality Control:
-    - All responses must follow documentation format
-    - All changes must be documented
-    - All uncertainties must be researched
-    - All approvals must be explicit
 ---
 owner: brian.speagle
-version: 2.0
+version: 3.0
+optimized_for: claude-sonnet-4.5
+last_updated: 2026-03-18
 applies_to: all_repos
 strict: true
 ---
 
-# 🚀 Windsurf Development Rules
+# 🚀 Windsurf Development Rules (v3.0)
 
-## 📑 Table of Contents
-- [📚 Documentation Standards](#-documentation-standards)
-- [💻 Code Quality](#-code-quality)
-- [🔄 Git Workflow](#-git-workflow)
-- [🛡️ Security & Infrastructure](#-security--infrastructure)
-- [🤝 Collaboration](#-collaboration)
-- [✅ Quality Assurance](#-quality-assurance)
-- [💯 Documentation and Research Requirements](#-documentation-and-research-requirements)
-- [🎯 Response Standards](#-response-standards)
+**Optimized for Claude Sonnet 4.5 with Extended Thinking**
 
 ---
 
-## 📚 Documentation Standards  # tags: documentation
+## 📚 Documentation Standards
 
-### 📝 README Requirements
-- Use the official template at `docs/readme-template.md`
-- Include:
-  - Emojis, badges, and mermaid diagrams
-  - Infrastructure diagrams
+### README Requirements
+- **Template**: Use `docs/templates/readme-template.md`
+- **Must include**:
+  - Emojis, badges, mermaid diagrams
+  - Current infrastructure diagrams
   - Table of contents
-  - Setup & environment configuration
-  - Troubleshooting instructions
-- ✅ Keep updated with *every* repo change
+  - Setup instructions and environment config
+  - Troubleshooting guide
+- **Update frequency**: With every repository change
 
-### 🧱 Terraform Variables
-- Structure `variables.tf` using headers:
-  ```
-  #===================================#
-  #        < BASIC SETTINGS >         #
-  #===================================#
-  ```
+### Terraform Variables
+Structure `variables.tf` with clear section headers:
+```hcl
+#===================================#
+#        < BASIC SETTINGS >         #
+#===================================#
 
----
+#===================================#
+#        < NETWORK SETTINGS >       #
+#===================================#
 
-## 💻 Code Quality  # tags: code-quality
-
-- ✅ No automatic changes without approval
-- Keep solutions simple, efficient, and well-documented
-- Include:
-  - Tests
-  - Inline documentation
-  - Consistent style
-  - Error handling
-  - Security & performance considerations
-
-### 📦 Library Use
-- Always verify changes with official docs
-- ❌ No undocumented behavior assumptions
-- ✅ Clearly state what’s supported vs. potentially breaking
+#===================================#
+#        < TAGGING >                #
+#===================================#
+```
 
 ---
 
-## 🔄 Git Workflow  # tags: git
+## 💻 Code Quality
 
-- Run `git status` before every commit
+### Core Principles
+- **No automatic changes** - Always require approval first
+- **Simplicity over complexity** - Avoid overengineering
+- **Documentation** - Code should be self-explanatory with clear comments
+- **Testing** - Comprehensive test coverage required
+- **Style consistency** - Follow language/framework conventions
+- **Error handling** - Robust, informative error messages
+
+### File Size Limit
+**CRITICAL**: Code files must not exceed **300 lines**
+- If exceeded, refactor into modules/helpers/components
+- Applies to: Python, JavaScript/TypeScript, Go, Shell, etc.
+- Goal: Maintainability, testability, reusability
+
+### Library Implementation
+- **Verify against official documentation** before implementing
+- **No assumptions** about undocumented behavior
+- **Be explicit** about supported vs. potentially breaking changes
+- **Check compatibility** with existing dependencies
+
+---
+
+## 🔄 Git Workflow
+
+### Commits
+- Run `git status` before committing
 - Commit messages must include:
-  - What changed
-  - Why it changed
-  - Impact
-- Branch format:
-  - `feature/[name]`, `bugfix/[name]`, `hotfix/[name]`
-- Pull requests:
-  - Must be descriptive
-  - Use squash merge
+  - **What** changed
+  - **Why** it changed
+  - **Impact** of changes
+
+### Branches
+- `feature/[descriptive-name]`
+- `bugfix/[descriptive-name]`
+- `hotfix/[descriptive-name]`
+
+### Pull Requests
+- Descriptive titles and descriptions
+- Squash commits before merging
+- Require code review
 
 ---
 
-## 🛡️ Security & Infrastructure  # tags: security, infrastructure
+## 🛡️ Security & Infrastructure
 
-- ❌ Never commit secrets or credentials
-- ✅ Document all infra changes
-- Keep environments in sync
-- Define:
-  - Access controls
-  - Backup procedures
-- Keep dependencies up-to-date
+### Non-Negotiables
+- ❌ **NEVER commit secrets, credentials, or API keys**
+- ✅ **Document all infrastructure changes**
+- ✅ **Maintain environment parity** (dev/staging/prod)
 
----
-
-## 🤝 Collaboration  # tags: team
-
-- Code reviews are mandatory
-- Share knowledge regularly
-- Document architecture decisions
-- Maintain clear communication channels
+### Required Documentation
+- Access control policies
+- Backup and recovery procedures
+- Dependency update schedules
 
 ---
 
-## ✅ Quality Assurance  # tags: qa, testing
+## 🔍 Research & Verification Standards
 
-- Define acceptance criteria
+### Before Making Changes
+Modern models handle confidence assessment internally through extended thinking, but must still:
+
+1. **Verify against official documentation**
+   - Check current versions and compatibility
+   - Validate syntax and configuration formats
+   - Identify breaking changes or limitations
+
+2. **Surface uncertainties**
+   - If unsure, state it clearly
+   - Research before proceeding
+   - Never guess or assume
+
+3. **Get approval**
+   - No changes without explicit user approval
+   - Explain what will change and why
+   - Highlight any risks or considerations
+
+### Research Process
+- Official docs first, always
+- Cross-reference multiple sources when needed
+- Verify against current versions
+- Test compatibility claims
+
+### Zero Tolerance
+- ❌ No undocumented assumptions
+- ❌ No trial-and-error approaches
+- ❌ No proceeding without verification
+- ❌ No changes without approval
+
+---
+
+## ✅ Quality Assurance
+
+- Define clear acceptance criteria
 - Maintain test coverage
-- Monitor performance
-- Document all APIs
+- Monitor performance metrics
+- Document all API endpoints
+- Regular security audits
 
 ---
 
-## 💯 Documentation and Research Requirements  # tags: research, docs, verification
+## 🤝 Collaboration Standards
 
-### 📄 Required Format
-Include for **every** change:
-```
-Documentation References:
-- Service Documentation: [EXACT URL]
-- Tool Documentation: [EXACT URL]
-- Section Quote: [EXACT QUOTE]
-
-Confidence Assessment:
-- Confidence Level: [X]%
-- Reasoning: [REASON]
-- Uncertainties: [ANY]
-- Additional Research Needed: [YES/NO]
-
-Proposed Changes:
-[DETAILED PLAN]
-```
-
-### 🔍 Research Policy
-- Always check official docs first
-- Validate:
-  - Version compatibility
-  - Syntax
-  - Breaking changes
-  - Resource limits
-
-### ❗ Zero Tolerance
-- No assumptions
-- No trial/error
-- No changes without full verification + approval
+- **Code reviews**: Mandatory for all changes
+- **Knowledge sharing**: Regular team sync-ups
+- **Architecture decisions**: Document rationale and trade-offs
+- **Communication**: Clear, timely, and actionable
 
 ---
 
-## 🎯 Response Standards  # tags: responses, approvals
+## 🎯 Response Philosophy for Modern Models
 
-- Must include:
-  - Documentation references
-  - Confidence level
-  - Uncertainties
-  - Explicit approval request
+### Trust But Verify
+Claude Sonnet 4.5 with extended thinking:
+- ✅ Handles confidence assessment internally
+- ✅ Evaluates uncertainties during reasoning
+- ✅ Knows when to research vs. proceed
+- ✅ Self-corrects during extended thinking
 
-- ❌ Do NOT:
-  - Skip research or verification
-  - Proceed without approval
+### Still Required
+- **Documentation references** when making technical claims
+- **Explicit approval requests** before changes
+- **Clear communication** of risks and trade-offs
+- **Pause and research** when genuinely uncertain
 
-- ✅ Ensure:
-  - All changes are documented
-  - All uncertainties are resolved or paused on
+### Not Required Anymore
+- ~~Verbose formatted confidence assessments~~
+- ~~Explicit percentage confidence levels~~
+- ~~Rigid documentation templates~~
+- ~~Step-by-step reasoning explanations~~ (handled in thinking mode)
+
+---
+
+## 📋 Summary
+
+**Critical Rules (Never Break)**:
+1. No automatic changes without approval
+2. Never commit secrets/credentials
+3. Verify against official documentation
+4. 300-line file limit
+5. No assumptions or guessing
+
+**Philosophy**:
+- Simple over complex
+- Verified over assumed
+- Documented over tribal knowledge
+- Tested over "it works on my machine"
+
+**For Modern Models**:
+- Use extended thinking for internal reasoning
+- Surface final conclusions and uncertainties
+- Trust the model's judgment while maintaining safety guardrails
+- Focus on outcomes over process
